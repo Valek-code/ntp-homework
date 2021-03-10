@@ -3,11 +3,13 @@
 using namespace std;
 
 struct pravokutnik {
-	unsigned int a,b;
+	int a,b;
 };
 
 int povrsina(pravokutnik P){
-	return P.a * P.b;
+	int povrsina;
+	(P.a <= 0 || P.b <= 0) ? povrsina = 0 : povrsina = P.a*P.b; 
+	return povrsina;
 }
 
 void povecaj_za(pravokutnik& P, int x){
@@ -16,8 +18,8 @@ void povecaj_za(pravokutnik& P, int x){
 }
 
 void smanji_za(pravokutnik& P, int x){
-	P.a -= x;
-	P.b -= x;
+	(P.a - x <= 0) ? P.a = 0 : P.a -= x;
+	(P.b - x <= 0) ? P.b = 0 : P.b -= x;
 }
 
 void ispisi(pravokutnik P){
